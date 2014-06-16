@@ -22,6 +22,7 @@ int spi_set_mode(int fd, int mode)
 	/*
 	 * spi mode
 	 */
+	spi_mode = mode;
 	ret = ioctl(fd, SPI_IOC_WR_MODE, &mode);
 	if (ret == -1)
 		pabort("can't set spi mode");
@@ -38,6 +39,7 @@ int spi_set_word(int fd, int bits)
 	/*
 	 * bits per word
 	 */
+	spi_bits = bits;
 	ret = ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &bits);
 	if (ret == -1)
 		pabort("can't set bits per word");
@@ -55,6 +57,7 @@ int spi_set_speed(int fd, int speed)
 	/*
 	 * max speed hz
 	 */
+	spi_speed = speed;
 	ret = ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed);
 	if (ret == -1)
 		pabort("can't set max speed hz");
